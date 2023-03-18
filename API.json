@@ -1,0 +1,90 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "City API",
+    "description": "This API supports the retrieval of Demand Intensity for a given city.",
+    "contact": {
+      "email": "pramodhini.hanumant@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/pramopras/Maps/1.0.0",
+      "description": "SwaggerHub API Auto Booking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "admins",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "developers",
+      "description": "Operations available to regular developers"
+    }
+  ],
+  "paths": {
+    "/routes": {
+      "get": {
+        "tags": [
+          "developers"
+        ],
+        "summary": "Find Routes by City Name",
+        "description": "Returns the less populated routes of Input City",
+        "operationId": "findCityRoutes",
+        "parameters": [
+          {
+            "name": "City Name",
+            "in": "query",
+            "description": "Name of the City",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "City Routes recommending criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid City"
+          },
+          "404": {
+            "description": "Data not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Routes": {
+        "required": [
+          "city name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "City Name"
+          }
+        }
+      }
+    }
+  }
+}
