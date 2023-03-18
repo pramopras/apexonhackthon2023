@@ -14,7 +14,7 @@
   },
   "servers": [
     {
-      "url": "https://virtserver.swaggerhub.com/pramopras/Maps/1.0.0",
+      "url": "https://virtserver.swaggerhub.com/PRAMODHINIHANUMANT/GetRoutesForCity/1.0.0",
       "description": "SwaggerHub API Auto Booking"
     }
   ],
